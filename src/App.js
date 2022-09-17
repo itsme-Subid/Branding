@@ -13,9 +13,11 @@ function App() {
 
   window.onload = async () => {
     let array = JSON.parse(localStorage.getItem("array"));
-    if (array.length > 0 && array !== null) {
-      setName(array[array.length - 1].name);
-      setSubtext(array[array.length - 1].subtext);
+    if (array !== null) {
+      if (array.length > 0) {
+        setName(array[array.length - 1].name);
+        setSubtext(array[array.length - 1].subtext);
+      }
     }
     if (localStorage.getItem("oldUser") === null) {
       await ajax();
