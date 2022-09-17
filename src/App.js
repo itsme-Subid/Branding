@@ -57,7 +57,10 @@ function App() {
       this.name = sname;
       this.subtext = ssubtext;
     }
-    if (localStorage.getItem("oldUser") === null) {
+    if (
+      localStorage.getItem("oldUser") === null ||
+      localStorage.getItem("array1") === null
+    ) {
       await ajax();
       let array1 = [];
       array1.push(new User());
