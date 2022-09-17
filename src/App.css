@@ -1,0 +1,298 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --ff-color: #fff;
+  --bg-color: #000;
+  --animation-delay: 1s;
+  --color-primary: #1f6feb;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg-color);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.onLoadSection {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.onLoadSection video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.onLoadSection h1 {
+  text-align: center;
+  color: var(--ff-color);
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: calc(50vh - 4rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-size: 5em;
+  letter-spacing: 0.2em;
+}
+
+.onLoadSection h1 span {
+  opacity: 0;
+  display: inline-block;
+  text-transform: capitalize;
+}
+
+.opacity-1 {
+  opacity: 1 !important;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0;
+    transform: rotateY(90deg);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateY(0);
+    filter: blur(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .onLoadSection h1 {
+    font-size: 4em;
+  }
+}
+@media (max-width: 700px) {
+  .onLoadSection h1 {
+    font-size: 3em;
+  }
+}
+@media (max-width: 550px) {
+  .onLoadSection h1 {
+    font-size: 2em;
+  }
+}
+@media (max-width: 350px) {
+  .onLoadSection h1 {
+    font-size: 1.8em;
+  }
+}
+.onLoadSection h2 {
+  display: block;
+  position: absolute;
+  font-size: medium;
+  top: calc(50vh + 3.5rem);
+  right: 5rem;
+  color: var(--ff-color);
+  animation-delay: 5s;
+  text-transform: uppercase;
+}
+
+.nameAnimation {
+  animation: animate 1s linear forwards 1;
+}
+
+.subtextAnimation {
+  animation: subtext 1s cubic-bezier(0, 1.25, 0.5, 2) both 1;
+}
+
+@keyframes subtext {
+  0% {
+    opacity: 0;
+    transform: translateX(250vw);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (min-width: 900px) {
+  .onLoadSection h2 {
+    right: 25rem;
+    top: calc(50vh + 1.5rem);
+  }
+}
+
+@media (max-width: 700px) {
+  .onLoadSection h1 {
+    top: calc(50vh - 2rem);
+  }
+  .onLoadSection h2 {
+    top: calc(50vh + 1rem);
+    right: 5rem;
+  }
+}
+
+.wrapper {
+  min-height: 100vh;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5rem;
+  gap: 2rem;
+}
+
+form > * {
+  outline: none;
+}
+
+section input {
+  margin-inline: auto;
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, 0.15);
+  background-color: rgb(255 255 255 / 20%);
+  border-radius: 5rem;
+  padding: 1rem;
+  width: 45%;
+  caret-color: var(--ff-color);
+  transition: all 0.3s ease;
+  color: var(--ff-color);
+}
+
+@media (max-width: 700px) {
+  section input {
+    width: 80%;
+  }
+}
+
+section input:focus {
+  box-shadow: inset 0 0 0 2px var(--ff-color);
+  width: 85%;
+}
+
+section input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+section input[type="submit"] {
+  background-color: var(--ff-color);
+  color: var(--bg-color);
+  border: none;
+  border-radius: 5rem;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+section input[type="submit"]:hover {
+  box-shadow: none;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: var(--bg-color);
+}
+
+section h2,
+section h3 {
+  color: var(--ff-color);
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+section h2 {
+  letter-spacing: 0.25em;
+}
+
+section h3 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+}
+
+@media (max-width: 700px) {
+  section h2,
+  section h3 {
+    letter-spacing: normal;
+  }
+
+  section h2 {
+    font-size: 1.5rem;
+  }
+  section h3 {
+    font-size: 1.2rem;
+  }
+
+  section input[type="submit"] {
+    width: 50%;
+  }
+}
+
+.notification__content {
+  position: absolute;
+  top: 4rem;
+  left: 1rem;
+  padding: 1rem;
+  max-width: 80vw;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 1px 10px 0 rgba(194, 194, 194, 0.25);
+  color: var(--ff-color);
+  z-index: 10;
+  opacity: 0;
+  display: block;
+  animation: disappearNotification forwards 3.3s ease;
+  animation-delay: 6.5s;
+}
+
+@keyframes disappearNotification {
+  0% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+.notification__content::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 6px;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.5);
+  animation: animateBar forwards 3s ease-in;
+  animation-delay: 6.5s;
+}
+
+@keyframes animateBar {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.notification__title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
