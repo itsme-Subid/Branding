@@ -12,11 +12,11 @@ function App() {
   let notificationTitle = "Scroll Down to create your own";
 
   window.onload = async () => {
-    let array = JSON.parse(localStorage.getItem("array"));
-    if (array !== null) {
-      if (array.length > 0) {
-        setName(array[array.length - 1].name);
-        setSubtext(array[array.length - 1].subtext);
+    let array1 = JSON.parse(localStorage.getItem("array1"));
+    if (array1 !== null) {
+      if (array1.length > 0) {
+        setName(array1[array1.length - 1].name);
+        setSubtext(array1[array1.length - 1].subtext);
       }
     }
     if (localStorage.getItem("oldUser") === null) {
@@ -59,21 +59,21 @@ function App() {
     }
     if (localStorage.getItem("oldUser") === null) {
       await ajax();
-      let array = [];
-      array.push(new User());
-      localStorage.setItem("array", JSON.stringify(array));
+      let array1 = [];
+      array1.push(new User());
+      localStorage.setItem("array1", JSON.stringify(array1));
     } else {
-      let array = JSON.parse(localStorage.getItem("array"));
+      let array1 = JSON.parse(localStorage.getItem("array1"));
       let j;
-      for (j = 0; j < array.length; j++) {
-        if (array[j].name === sname && array[j].subtext === ssubtext) {
+      for (j = 0; j < array1.length; j++) {
+        if (array1[j].name === sname && array1[j].subtext === ssubtext) {
           break;
         }
       }
-      if (j === array.length) {
+      if (j === array1.length) {
         await ajax();
-        array.push(new User());
-        localStorage.setItem("array", JSON.stringify(array));
+        array1.push(new User());
+        localStorage.setItem("array1", JSON.stringify(array1));
       }
     }
     setSubmitClick(true);
