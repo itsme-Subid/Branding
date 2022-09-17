@@ -13,7 +13,7 @@ function App() {
 
   window.onload = async () => {
     let array = JSON.parse(localStorage.getItem("array"));
-    if (array[array.length - 1].name !== null) {
+    if (array.length > 0) {
       setName(array[array.length - 1].name);
       setSubtext(array[array.length - 1].subtext);
     }
